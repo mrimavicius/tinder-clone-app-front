@@ -1,3 +1,12 @@
+:root {
+  --main-bg-color: #fd267a;
+  --main-border-radius: 6px;
+  --main-linear-gradient: linear-gradient(45deg, #fd267a, #ff6036);
+  --main-border: 2px solid white;
+  --main-box-shadow: 0 0 0 2px white;
+  --dark-gray: rgb(60, 60, 60);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +19,307 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Default Custom Element Styling */
+input, button, select {
+  padding: 0.8em;
+  margin: 0.5em 0;
+  border-radius: var(--main-border-radius);
+  border: none;
+  font-size: 1.2em;
+}
+
+button {
+  background: white;
+  color: var(--main-bg-color);
+  font-weight: bold;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+
+a {
+  color: var(--main-bg-color);
+  text-decoration: none;
+}
+
+/* Basic classes */
+.d-flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.just-center {
+  justify-content: center;
+}
+
+.space-btw {
+  justify-content: space-between;
+}
+
+.flex-start {
+  justify-content: flex-start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Custom CSS */
+.form-container {
+  height: 100vh;
+  background: var(--main-linear-gradient);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  padding: 1.5em 0.5em;
+  border-radius: var(--main-border-radius);
+  border: var(--main-border);
+  overflow: auto;
+}
+
+.form h2 {
+  text-align: center;
+  font-size: 2.5em;
+  margin: 1em 0;
+  color: white;
+}
+
+.form button, input, select {
+  width: 90%;
+  margin: 0.5em auto;
+}
+
+.form button:hover {
+  box-shadow: var(--main-box-shadow);
+  background: var(--main-linear-gradient);
+  color: white;
+}
+
+.form label {
+  width: 90%;
+  color: white;
+  font-weight: bold;
+}
+
+.form .signup button, input, select {
+  padding: 0.5em;
+  margin: 0.3em auto;
+}
+
+.autologin {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+  align-items: center;
+}
+
+.form .autologin input {
+  margin-left: 1.5em;
+  margin-right: 0.5em;
+  width: 20px;
+  height: 2em;
+}
+
+.form .autologin label {
+  width: fit-content;
+}
+
+.form .autologin p {
+  margin-left: 0.75em;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.signup label {
+  margin-left: 1.5em;
+}
+
+.form-ext {
+  margin: 0.5em 0;
+}
+
+.form p {
+  text-align: center;
+  font-size: 1.4em;
+  color: white;
+}
+
+.toolbar {
+  background: var(--main-linear-gradient);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toolbar a {
+  color: white;
+  padding: 1em;
+  font-weight: bold;
+}
+
+.myswiper {
+  width: 400px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 6px 6px 0 0;
+}
+
+.card-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--dark-gray);
+  border-radius: 0 0 6px 6px;
+  width: 400px;
+}
+
+.card-bottom p {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-left: 0.5em;
+  padding: 0.25em;
+}
+
+.swiperslide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-container {
+  margin: 2em auto;
+  width: 400px;
+  text-align: center;
+}
+
+.input-box {
+  gap: 1em;
+}
+
+.profile-container label {
+  font-weight: bold;
+  text-align: left;
+  margin-left: 0.25em;
+}
+
+.range-slider {
+  text-align: center;
+  margin: 0.75em 0.5em;
+}
+
+.input-box button, .profile-container button {
+  background: var(--main-linear-gradient);
+  color: white;
+}
+
+.filter select, .filter input {
+  width: 100%;
+}
+
+.input-box input, .profile-container select {
+  border: 2px solid black;
+  margin: 0.5em 0;
+}
+
+.dislike-btn {
+  background: var(--main-linear-gradient) !important;
+  color: white;
+  margin: 0.3em 0.3em;
+}
+
+.like-btn {
+  background: linear-gradient(45deg, #20BF55, #01BAEF) !important;
+  color: white;
+  margin: 0.3em 0.3em;
+}
+
+.empty-alert {
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 2em auto;
+  color: var(--dark-gray);
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.single-card {
+  margin: 1em;
+}
+
+.profile-container input {
+  border: 2px solid black;
+}
+
+@media only screen and (max-width: 576px) {
+  .form-container {
+    justify-content: flex-end;
+  }
+
+  .form {
+    width: 100%;
+    border: none;
+  }
+
+  .form h2 {
+    margin-bottom: 3em;
+  }
+
+  .form input, button {
+    padding: 1.25em;
+  }
+
+  .profile-container {
+    width: 90%;
+  }
+
+  .myswiper {
+    width: 90%;
+  }
+
+  .input-box {
+    width: 90%;
+    margin: auto;
+  }
+
+  .card-bottom {
+    width: 90%;
+    margin: auto;
+  }
+
+  .like-btn, .dislike-btn {
+    padding: 0.5em;
+  }
+
+  .toolbar-left {
+    display: flex;
+    flex-direction: column;
+  }
 }
