@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
-import mainContext from '../context/mainContext';
-import UserCard from '../components/PhotoSwiper';
+import { useContext } from "react";
+import mainContext from "../context/mainContext";
+import UserCard from "../components/PhotoSwiper";
 
 const GotLikesPage = () => {
-
-  const { onlineUser } = useContext(mainContext)
+  
+  const { onlineUser } = useContext(mainContext);
 
   return (
     <div className="card-container">
@@ -15,10 +15,10 @@ const GotLikesPage = () => {
           </div>
         ))
       ) : (
-        <div className='empty-alert'>Nobody liked you yet</div>
+        <div className="empty-alert">Nobody liked you yet</div>
       )}
     </div>
   );
-}
+};
 
-export default GotLikesPage
+export default GotLikesPage;

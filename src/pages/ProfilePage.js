@@ -1,12 +1,10 @@
-import React, { useContext, useRef } from 'react'
+import { useContext, useRef } from 'react'
 import mainContext from '../context/mainContext'
 import UserCard from '../components/PhotoSwiper'
 
 const ProfilePage = () => {
 
     const { onlineUser, setOnlineUser } = useContext(mainContext)
-
-    const age = onlineUser && new Date().getFullYear() - onlineUser.dob.slice(0, 4)
 
     const photoRef = useRef()
 

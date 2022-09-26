@@ -318,8 +318,13 @@ a {
     padding: 0.5em;
   }
 
+  .toolbar a {
+    padding: 0.5em;
+    margin: 0 0.75em;
+  }
+
   .toolbar-left {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
   }
 }

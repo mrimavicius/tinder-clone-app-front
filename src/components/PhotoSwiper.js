@@ -1,14 +1,17 @@
-import { useRef } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
-import { Navigation, EffectFade } from 'swiper'
-import 'swiper/css/navigation'
-import 'swiper/css/effect-fade'
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Navigation, EffectFade } from "swiper";
+import "swiper/css/navigation";
+import "swiper/css/effect-fade";
 
-const UserCard = ({ user, swipe, getUserToSwipe, addLikedAndGetNew, small }) => {
-
-  const age =
-    user && new Date().getFullYear() - user.dob.slice(0, 4);
+const UserCard = ({
+  user,
+  swipe,
+  getUserToSwipe,
+  addLikedAndGetNew,
+  small,
+}) => {
+  const age = user && new Date().getFullYear() - user.dob.slice(0, 4);
 
   return (
     <div className="swiper-container" style={{ width: small && "250px" }}>
@@ -28,6 +31,7 @@ const UserCard = ({ user, swipe, getUserToSwipe, addLikedAndGetNew, small }) => 
           </SwiperSlide>
         ))}
       </Swiper>
+
       <div className="card-bottom" style={{ width: small && "250px" }}>
         <div>
           <p>
@@ -48,6 +52,6 @@ const UserCard = ({ user, swipe, getUserToSwipe, addLikedAndGetNew, small }) => 
       </div>
     </div>
   );
-}
+};
 
-export default UserCard
+export default UserCard;

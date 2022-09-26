@@ -10,7 +10,7 @@ const LoginPage = () => {
   const passwordRef = useRef();
   const checkRef = useRef();
 
-  const { onlineUser, setOnlineUser } = useContext(mainContext);
+  const { setOnlineUser } = useContext(mainContext);
 
   async function login() {
     setError("");
@@ -72,7 +72,6 @@ const LoginPage = () => {
         });
     }
   }, []);
-
 
   return (
     <div className="form-container">

@@ -1,21 +1,19 @@
-import { useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-
+import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignUpPage = () => {
+  const nav = useNavigate();
+  const [error, setError] = useState();
 
-  const nav = useNavigate()
-  const [error, setError] = useState()
-
-  const emailRef = useRef()
-  const password1Ref = useRef()
-  const password2Ref = useRef()
-  const nameRef = useRef()
-  const cityRef = useRef()
-  const dobRef = useRef()
-  const genderRef = useRef()
-  const photo1Ref = useRef()
-  const photo2Ref = useRef()
+  const emailRef = useRef();
+  const password1Ref = useRef();
+  const password2Ref = useRef();
+  const nameRef = useRef();
+  const cityRef = useRef();
+  const dobRef = useRef();
+  const genderRef = useRef();
+  const photo1Ref = useRef();
+  const photo2Ref = useRef();
 
   async function createUser() {
     setError("");
@@ -30,7 +28,18 @@ const SignUpPage = () => {
     const photo1 = photo1Ref.current.value;
     const photo2 = photo2Ref.current.value;
 
-    if (!email || !password || !password2 || !name || !city || !dob || !gender || !photo1 || !photo2) return
+    if (
+      !email ||
+      !password ||
+      !password2 ||
+      !name ||
+      !city ||
+      !dob ||
+      !gender ||
+      !photo1 ||
+      !photo2
+    )
+      return;
 
     const newUser = {
       email,
@@ -41,7 +50,7 @@ const SignUpPage = () => {
       dob,
       gender,
       photo1,
-      photo2
+      photo2,
     };
 
     const options = {
@@ -102,16 +111,10 @@ const SignUpPage = () => {
         <input ref={photo1Ref} type="text" placeholder="Photo 1 URL" />
         <input ref={photo2Ref} type="text" placeholder="Photo 2 URL" />
 
-        {/* {error.length > 0 && (
-          <div className="error">
-            <p>{error}</p>
-          </div>
-        )} */}
-
         <button onClick={createUser}>Sign up</button>
       </div>
     </div>
   );
-}
+};
 
-export default SignUpPage
+export default SignUpPage;
