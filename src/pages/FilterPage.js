@@ -8,8 +8,8 @@ const FilterPage = () => {
 
   const { onlineUser, setOnlineUser } = useContext(mainContext);
 
-  const [ageMin, setAgeMin] = useState(18);
-  const [ageMax, setAgeMax] = useState(35);
+  const [ageMin, setAgeMin] = useState(onlineUser.filter.age_min);
+  const [ageMax, setAgeMax] = useState(onlineUser.filter.age_max);
 
   async function saveFilter() {
     const info = {
@@ -52,21 +52,68 @@ const FilterPage = () => {
         <div className="d-flex flex-col">
           <label htmlFor="city">City</label>
           <select ref={cityRef} name="city" id="city">
-            <option value="All">All Cities</option>
-            <option value="Vilnius">Vilnius</option>
-            <option value="Kaunas">Kaunas</option>
-            <option value="Klaipėda">Klaipėda</option>
-            <option value="Šiauliai">Šiauliai</option>
-            <option value="Panevėžys">Panevėžys</option>
+            <option
+              selected={onlineUser.filter.city === "All" ? "selected" : ""}
+              value="All"
+            >
+              All Cities
+            </option>
+            <option
+              selected={onlineUser.filter.city === "Vilnius" ? "selected" : ""}
+              value="Vilnius"
+            >
+              Vilnius
+            </option>
+            <option
+              selected={onlineUser.filter.city === "Kaunas" ? "selected" : ""}
+              value="Kaunas"
+            >
+              Kaunas
+            </option>
+            <option
+              selected={onlineUser.filter.city === "Klaipėda" ? "selected" : ""}
+              value="Klaipėda"
+            >
+              Klaipėda
+            </option>
+            <option
+              selected={onlineUser.filter.city === "Šiauliai" ? "selected" : ""}
+              value="Šiauliai"
+            >
+              Šiauliai
+            </option>
+            <option
+              selected={
+                onlineUser.filter.city === "Panevėžys" ? "selected" : ""
+              }
+              value="Panevėžys"
+            >
+              Panevėžys
+            </option>
           </select>
         </div>
 
         <div className="d-flex flex-col">
           <label htmlFor="gender">Gender</label>
           <select ref={genderRef} name="gender" id="gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
+            <option
+              selected={onlineUser.filter.gender === "male" ? "selected" : ""}
+              value="male"
+            >
+              Male
+            </option>
+            <option
+              selected={onlineUser.filter.gender === "female" ? "selected" : ""}
+              value="female"
+            >
+              Female
+            </option>
+            <option
+              selected={onlineUser.filter.gender === "other" ? "selected" : ""}
+              value="other"
+            >
+              Other
+            </option>
           </select>
         </div>
 
@@ -82,10 +129,10 @@ const FilterPage = () => {
             onClick={(e) => ageHandler(e)}
             min="18"
             max="99"
-            value1="18"
-            value2="35"
+            value1={onlineUser.filter.age_min}
+            value2={onlineUser.filter.age_max}
             slider-width="100%"
-            theme="rect"
+            theme="ruler"
           ></toolcool-range-slider>
         </div>
 

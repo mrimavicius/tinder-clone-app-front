@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import PhotoSwiper from "../components/PhotoSwiper";
 import mainContext from "../context/mainContext";
+import { CSSTransition } from "react-transition-group";
 
 const SwipePage = () => {
   const [userToSwipe, setUserToSwipe] = useState(null);
+  const [show, setShow] = useState(false)
 
   const { onlineUser, setOnlineUser } = useContext(mainContext);
 
@@ -12,6 +14,7 @@ const SwipePage = () => {
   }, []);
 
   async function getUserToSwipe() {
+    setShow(false)
     const info = {
       email: onlineUser.email,
     };
@@ -32,6 +35,7 @@ const SwipePage = () => {
 
     if (!data.error) {
       setUserToSwipe(data.data);
+      setShow(true);
     }
   }
 
@@ -72,12 +76,19 @@ const SwipePage = () => {
     <div className="profile-container">
       {userToSwipe ? (
         <div>
-          <PhotoSwiper
-            user={userToSwipe}
-            swipe={true}
-            getUserToSwipe={getUserToSwipe}
-            addLikedAndGetNew={addLikedAndGetNew}
-          />
+          <CSSTransition
+          in={show}
+          timeout={300}
+          classNames="my-element"
+          unmountOnExit
+          >
+            <PhotoSwiper
+              user={userToSwipe}
+              swipe={true}
+              getUserToSwipe={getUserToSwipe}
+              addLikedAndGetNew={addLikedAndGetNew}
+            />
+          </CSSTransition>
         </div>
       ) : (
         <div className="empty-alert">No users found with this filter</div>
